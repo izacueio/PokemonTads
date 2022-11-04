@@ -12,7 +12,7 @@
 	<artifactId>pokemon</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>pokemon</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Projeto Pokemon</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
