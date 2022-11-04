@@ -32,5 +32,41 @@ public class TreinadorController{
 
     }
     @PostMapping
-    puib
+    public ResponseEntity<Object> saveAuthor(@RequestBody TreinadorDTO treinadorDTO){
+        Treinador treinadorEntity = new Treinador();
+        BeanUtils.copyProperties(treinadorDTO, treinadorEntity);
+
+        return ResponseEntity.status(HttpStatus.OK).body(treinadorRepository.save(treinadorEntity));
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Object> updateTreinador(@PathVariable Integer id, @RequestBody TreinadorDTO treinadorDTO){
+        Optional<Treinador> treinadorExists = treinadorRepository.findById(id);
+
+        if(!treinadorExists.isPresent()){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Treinador não encontrado.");
+        }
+
+        Treinador treinadorEntity = treinadorExists.get();
+
+        BeanUtils.copyProperties(treinadorDTO, treinadorEntity);
+
+        return ResponseEntity.status(HttpStatus.OK).body(treinadorRepository.save(treinadorEntity));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Object> deleteTreinador(@PathVariable Integer id){
+        Optional<Treinador> treinadorEntity = treinadorRepository.findById(id);
+
+        if(!treinadorEntity.isPresent()){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Treinador não encontrado.");
+        }
+
+        treinadorRepository.deleteById(id);
+        return ResponseEntity.status(HttpStatus.OK).body("Treinador Deletado.");
+    }
+
+
+  
+
 }
