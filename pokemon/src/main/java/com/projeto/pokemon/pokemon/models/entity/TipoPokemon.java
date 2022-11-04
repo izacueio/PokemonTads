@@ -15,7 +15,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "TipoPokemons")
+@Table(name = "tipopokemons")
 public class TipoPokemon {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

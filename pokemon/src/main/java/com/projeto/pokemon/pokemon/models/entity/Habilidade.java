@@ -15,7 +15,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "Habilidades")
+@Table(name = "habilidades")
 public class Habilidade {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

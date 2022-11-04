@@ -15,7 +15,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "Fraquezas")
+@Table(name = "fraquezas")
 public class Fraqueza {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
