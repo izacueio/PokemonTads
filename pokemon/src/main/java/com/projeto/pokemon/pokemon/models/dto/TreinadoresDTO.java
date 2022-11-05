@@ -1,6 +1,6 @@
 package com.projeto.pokemon.pokemon.models.dto;
 
-import javax.swing.Spring;
+
 
 import lombok.Getter;
 import lombok.Setter;
@@ -13,7 +13,7 @@ import lombok.AllArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class FraquezasDTO{
+public class TreinadoresDTO{
 
     private String nome;
     private Integer XP;

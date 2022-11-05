@@ -1,9 +1,11 @@
 package com.projeto.pokemon.pokemon.models.entity;
 
-import java.lang.annotation.Inherited;
-import java.persistence.*;
 
-import javax.annotation.processing.Generated;
+import java.util.List;
+import javax.persistence.*;
+
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

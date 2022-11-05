@@ -1,9 +1,13 @@
 package com.projeto.pokemon.pokemon.models.entity;
 
-import java.lang.annotation.Inherited;
-import java.persistence.*;
 
-import javax.annotation.processing.Generated;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.*;
+
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -27,7 +31,7 @@ public class Pokemon {
     private Integer Altura;
     private Integer Peso;
 
-    @ManytoOne
+    @ManyToOne
     @JoinColumn(name = "treinador_id")
     private Treinador treinador;
 

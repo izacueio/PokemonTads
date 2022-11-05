@@ -1,7 +1,8 @@
-package com.projeto.pokemon.pokemon.controllers;
+package com.projeto.pokemon.pokemon.Controllers;
 
 import java.util.Optional;
 
+import com.projeto.pokemon.pokemon.models.dto.TreinadoresDTO;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,13 +16,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.projeto.pokemon.pokemon.models.dto.TreinadorDTO;
 import com.projeto.pokemon.pokemon.models.entity.Treinador;
-import com.projeto.pokemon.pokemon.models.dto.TreinadorRepository;
+import com.projeto.pokemon.pokemon.models.repository.TreinadorRepository;
+
 
 @RestController
 @RequestMapping("/Treinadores")
-public class TreinadorController{
+public class TreinadorController<treinadorRepository>{
     
     @Autowired
     TreinadorRepository treinadorRepository;
@@ -32,7 +33,7 @@ public class TreinadorController{
 
     }
     @PostMapping
-    public ResponseEntity<Object> saveAuthor(@RequestBody TreinadorDTO treinadorDTO){
+    public ResponseEntity<Object> saveTreinadores(@RequestBody TreinadoresDTO treinadorDTO){
         Treinador treinadorEntity = new Treinador();
         BeanUtils.copyProperties(treinadorDTO, treinadorEntity);
 
@@ -40,7 +41,7 @@ public class TreinadorController{
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Object> updateTreinador(@PathVariable Integer id, @RequestBody TreinadorDTO treinadorDTO){
+    public ResponseEntity<Object> updateTreinador(@PathVariable Integer id, @RequestBody TreinadoresDTO treinadorDTO){
         Optional<Treinador> treinadorExists = treinadorRepository.findById(id);
 
         if(!treinadorExists.isPresent()){
